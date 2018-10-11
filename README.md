@@ -2,7 +2,7 @@
 Compile your images into PDF files.
 
 # Required Packages
-(Reportlab)[https://pypi.org/project/reportlab/]:
+[Reportlab](https://pypi.org/project/reportlab/):
 
 ```pip install reportlab```
 
