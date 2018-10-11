@@ -14,7 +14,10 @@ def createPDF(pdfname, files):
 	for file in files:
 		img = ImageReader(file)
 		pdf.setPageSize(img.getSize())
-		pdf.drawImage(img, 0, 0)
+		try:
+			pdf.drawImage(img, 0, 0)
+		except OSError:
+			pdf.drawImage(file, 0, 0)
 		pdf.showPage()
 		print('{}: {}'.format(i, os.path.basename(file)))
 		i += 1
