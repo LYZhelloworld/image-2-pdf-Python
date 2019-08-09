@@ -1,9 +1,10 @@
 # image-2-pdf
 Compile your images into PDF files.
 
-# Prerequisites
+# Python Prerequisites
 * Python 3
-* [Reportlab](https://pypi.org/project/reportlab/): `pip install reportlab`
+* Reportlab (see [requirements.txt](core-python/requirements.txt))
 
 # Usage
+## Python
 `img2pdf.py <directory that contains images> [<directory2 that contains images> ...]`
