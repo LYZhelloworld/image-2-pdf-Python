@@ -39,17 +39,23 @@ func getImageDimension(file string) (float64, float64) {
 
 func getImages(path string) []string {
 	result := make([]string, 0)
-	files, err := filepath.Glob(filepath.Join(path, "*"))
+	err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
+		if info.IsDir() {
+			return nil
+		}
+		
+		if strings.HasSuffix(strings.ToLower(info.Name()), ".jpg") ||
+			strings.HasSuffix(strings.ToLower(info.Name()), ".png") {
+			result = append(result, path)
+		}
+		
+		return nil
+	})
 	if err != nil {
+		fmt.Println(fmt.Errorf("An error occurred when walking directory: %s\n%w", path, err))
 		return result
 	}
 	
-	for _, f := range files {
-		if strings.HasSuffix(strings.ToLower(f), ".jpg") ||
-			strings.HasSuffix(strings.ToLower(f), ".png") {
-			result = append(result, f)
-		}
-	}
 	sort.Strings(result)
 	return result
 }
