@@ -3,7 +3,7 @@ Compile your images into PDF files.
 
 # Python Prerequisites
 * Python 3
-* Reportlab (see [requirements.txt](core-python/requirements.txt))
+* Reportlab (see [requirements.txt](requirements.txt))
 
 # Usage
 ## Python
